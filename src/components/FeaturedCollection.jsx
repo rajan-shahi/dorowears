@@ -10,7 +10,7 @@ const FeaturedCollection = () => {
       <div className=" grid lg:grid-cols-4 md:grid-cols-3 scroll-m-2 gap-4 w-11/12 justify-center items-center">
         {items.map((item, index) => (
           <div  key={index} className=" flex flex-col gap-3 justify-center items-center">
-            <img src={item.img} alt="" />
+            <img className=" object-cover  cursor-pointer" src={item.img} alt="" />
             <span className=" text-gray-700 font-semibold text-2xl  tracking-widest italic cursor-pointer hover:underline duration-500">{item.name}</span>
           </div>
         ))}

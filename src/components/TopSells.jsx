@@ -25,7 +25,7 @@ const TopSells = () => {
               key={index}
               className=" border border-transparent hover:border-primary-350 duration-500 flex flex-col gap-2 pb-5"
             >
-              <img src={item.image} alt="" />
+              <img className=" object-cover" src={item.image} alt="" />
               <span className=" flex justify-between px-4">
                 <span className="  text-gray-600 font-semibold text-md">
                   {item.name}
