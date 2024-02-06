@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Contact from "./components/Contact";
+import FeaturedCollection from "./components/FeaturedCollection";
+import HeroSection from "./components/HeroSection";
+import NewProduct from "./components/NewProduct";
+import Sales from "./components/Sales";
+import Shop from "./components/Shop";
+import TopSells from "./components/TopSells";
+
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function App() {
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className=" overflow-x-hidden">
+      <HeroSection />
+
+      <NewProduct />
+      <Sales />
+      <Shop />
+      <TopSells />
+      <FeaturedCollection />
+      <Contact />
     </div>
   );
 }
