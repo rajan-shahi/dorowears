@@ -1,4 +1,3 @@
-import React from "react";
 import top1 from "../assets/top/top1.webp";
 import top2 from "../assets/top/top2.webp";
 import top3 from "../assets/top/top3.webp";
@@ -11,8 +10,15 @@ import top9 from "../assets/top/top9.webp";
 import top10 from "../assets/top/top10.webp";
 import top11 from "../assets/top/top11.webp";
 import top12 from "../assets/top/top12.webp";
+import React, { useState } from "react";
 
 const TopSells = () => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleHover = () => {
+    setIsHovered(!isHovered);
+  };
+
   return (
     <div className=" bg-[#F3F3EF] flex py-10 justify-center items-center">
       <div className=" flex flex-col gap-2 justify-between items-center w-11/12">
@@ -25,7 +31,9 @@ const TopSells = () => {
               key={index}
               className=" border border-transparent hover:border-primary-350 duration-500 flex flex-col gap-2 pb-5"
             >
-              <img className=" object-cover" src={item.image} alt="" />
+              <div onMouseEnter={handleHover} onMouseLeave={handleHover}>
+                <img src={isHovered ? item.image2 : item.image} alt="" />
+              </div>
               <span className=" flex justify-between px-4">
                 <span className="  text-gray-600 font-semibold text-md">
                   {item.name}
@@ -47,61 +55,73 @@ export default TopSells;
 const items = [
   {
     image: top1,
+    image2: top10,
     name: "Lilli structured-sleeve shirt",
     price: "$118",
   },
   {
     image: top2,
+    image2: top1,
     name: "Allerga Gathered-Neck sleeveles Blouse",
     price: "$92",
   },
   {
     image: top3,
+    image2: top4,
     name: "Jude Cropped Tie-Front Top",
     price: "$85",
   },
   {
     image: top4,
+    image2: top5,
     name: "Yoon Cargo Pocket Short",
     price: "$109",
   },
   {
     image: top5,
+    image2: top6,
     name: "Split Back Shirl",
     price: "$52",
   },
   {
     image: top6,
+    image2: top7,
     name: "Semi-Sheer Tie-Back Shirl",
     price: "$128",
   },
   {
     image: top7,
+    image2: top8,
     name: "Kenny-Neck Tee",
     price: "$72",
   },
   {
     image: top8,
+    image2: top9,
     name: "Allegra Gathered-Neck Sleeve Blouse",
     price: "$99",
   },
   {
     image: top9,
+    image2: top11,
     name: "Harper Long-sleeve Wrap Top",
     price: "$88",
   },
   {
     image: top10,
+    image2: top12,
     name: "Neck-Long-Sleeve Tee",
     price: "$62",
   },
   {
     image: top11,
+    image2: top10,
     name: "Jordy Square-Neck Short Sleeve Tee",
     price: "$63",
   },
   {
     image: top12,
+    image2: top1,
     name: "Nikki Reversible Ruchhed Tee",
     price: "$88",
   },

@@ -9,9 +9,9 @@ const FeaturedCollection = () => {
       <span className=" md:text-3xl text-2xl text-gray-700  font-semibold tracking-widest">FEATURED COLLECTIONS</span>
       <div className=" grid lg:grid-cols-4 md:grid-cols-3 scroll-m-2 gap-4 w-11/12 justify-center items-center">
         {items.map((item, index) => (
-          <div  key={index} className=" flex flex-col gap-3 justify-center items-center">
+          <div  key={index} className=" group flex flex-col gap-3 justify-center items-center">
             <img className=" object-cover  cursor-pointer" src={item.img} alt="" />
-            <span className=" text-gray-700 font-semibold text-2xl  tracking-widest italic cursor-pointer hover:underline duration-500">{item.name}</span>
+            <span className=" text-gray-700 font-semibold text-2xl  tracking-widest italic cursor-pointer group-hover:underline duration-500">{item.name}</span>
           </div>
         ))}
       </div>
