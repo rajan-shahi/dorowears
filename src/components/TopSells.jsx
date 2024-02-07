@@ -10,15 +10,8 @@ import top9 from "../assets/top/top9.webp";
 import top10 from "../assets/top/top10.webp";
 import top11 from "../assets/top/top11.webp";
 import top12 from "../assets/top/top12.webp";
-import React, { useState } from "react";
 
 const TopSells = () => {
-  const [isHovered, setIsHovered] = useState(false);
-
-  const handleHover = () => {
-    setIsHovered(!isHovered);
-  };
-
   return (
     <div className=" bg-[#F3F3EF] flex py-10 justify-center items-center">
       <div className=" flex flex-col gap-2 justify-between items-center w-11/12">
@@ -31,8 +24,17 @@ const TopSells = () => {
               key={index}
               className=" border border-transparent hover:border-primary-350 duration-500 flex flex-col gap-2 pb-5"
             >
-              <div onMouseEnter={handleHover} onMouseLeave={handleHover}>
-                <img src={isHovered ? item.image2 : item.image} alt="" />
+              <div key={index} className="relative group">
+                <img
+                  src={item.image}
+                  alt=""
+                  className="w-full h-auto transition duration-1000 transform"
+                />
+                <img
+                  src={item.image2}
+                  alt=""
+                  className="absolute inset-0 w-full h-auto  group-hover:duration-500 hidden group-hover:block"
+                />
               </div>
               <span className=" flex justify-between px-4">
                 <span className="  text-gray-600 font-semibold text-md">
@@ -61,13 +63,13 @@ const items = [
   },
   {
     image: top2,
-    image2: top1,
+    image2: top4,
     name: "Allerga Gathered-Neck sleeveles Blouse",
     price: "$92",
   },
   {
     image: top3,
-    image2: top4,
+    image2: top1,
     name: "Jude Cropped Tie-Front Top",
     price: "$85",
   },
